@@ -82,7 +82,7 @@ details.
 
 See [lichess.org/thanks](https://lichess.org/thanks) and the contributors here:
 
-[![GitHub contributors](https://contrib.rocks/image?repo=lichess-org/lila)](https://github.com/lichess-org/lila/graphs/contributors)
+[![GitHub contributors](https://raw.githubusercontent.com/M-DinhHoangViet/M-DinhHoangViet/2b512db9d28649831a72d513c8674c9439df849d/metrics.plugin.contributors.contributions.svg)
 
 ## Competence development program
 
