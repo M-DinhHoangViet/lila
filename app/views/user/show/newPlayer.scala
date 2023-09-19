@@ -1,6 +1,7 @@
 package views.html.user.show
 
-import lila.app.templating.Environment.{ given, * }
+import lila.api.EmbedContext.given_Lang
+import lila.app.templating.Environment.given
 import lila.app.ui.ScalatagsTemplate.{ *, given }
 import lila.user.User
 
@@ -34,10 +35,10 @@ object newPlayer:
         li(a(href := s"${routes.Lobby.home}#ai")(trans.playTheArtificialIntelligence())),
         li(a(href := s"${routes.Lobby.home}#hook")(trans.playOpponentsFromAroundTheWorld())),
         li(a(href := routes.User.list)(trans.followYourFriendsOnLichess())),
-        li(a(href := routes.Tournament.home)(playInTournaments())),
+        li(a(href := routes.Tournament.home)(trans.playInTournaments())),
         li(trans.learnFromXAndY(
-          a(href := routes.Study.allDefault(1))(trans.learnFromStudies()),
-          a(href := routes.Video.index)(trans.learnFromVideos())
+          a(href := routes.Study.allDefault(1))(trans.toStudies()),
+          a(href := routes.Video.index)(trans.toVideos())
           )
         ),
         li(a(href := routes.Pref.form("game-display"))(trans.configureLichess())),

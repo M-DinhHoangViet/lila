@@ -857,6 +857,7 @@ object I18nKeys:
   val `playOpponentsFromAroundTheWorld` = I18nKey("playOpponentsFromAroundTheWorld")
   val `followYourFriendsOnLichess` = I18nKey("followYourFriendsOnLichess")
   val `playInTournaments` = I18nKey("playInTournaments")
+  val `learnFromXAndY` = I18nKey("learnFromXAndY")
   val `learnFromStudies` = I18nKey("learnFromStudies")
   val `learnFromVideos` = I18nKey("learnFromVideos")
   val `configureLichess` = I18nKey("configureLichess")
@@ -2016,7 +2017,7 @@ object I18nKeys:
     val `enableDisableNotificationPopUps` = I18nKey("faq:enableDisableNotificationPopUps")
     val `viewSiteInformationPopUp` = I18nKey("faq:viewSiteInformationPopUp")
     val `lichessCanOptionnalySendPopUps` = I18nKey("faq:lichessCanOptionnalySendPopUps")
-	val `makeABot` = I18nKey("faq:makeABot")
+    val `makeABot` = I18nKey("faq:makeABot")
     val `toLearnHowToCreateABot` = I18nKey("faq:toLearnHowToCreateABot")
     val `thisBlogPost` = I18nKey("faq:thisBlogPost")
     val `enableAutoplayForSounds` = I18nKey("faq:enableAutoplayForSounds")
@@ -2547,4 +2548,3 @@ object I18nKeys:
     val `engineWrite` = I18nKey("oauthScope:engineWrite")
     val `webLogin` = I18nKey("oauthScope:webLogin")
     val `webMod` = I18nKey("oauthScope:webMod")
-

@@ -986,8 +986,7 @@ Leave empty to start games from the normal initial position.</string>
   <string name="playOpponentsFromAroundTheWorld">Play opponents from around the world</string>
   <string name="followYourFriendsOnLichess">Follow your friends on Lichess</string>
   <string name="playInTournaments">Play in tournaments</string>
-  <string name="learnFromStudies">Learn from studies</string>
-  <string name="learnFromVideos"> and videos</string>
+  <string name="learnFromXAndY">Learn from $1%s and $2%s</string>
   <string name="configureLichess">Configure Lichess to your liking</string>
   <string name="exploreTheSiteAndHaveFun">Explore the site and have fun :)</string>
   <string name="featuredBot">Featured bots</string>
