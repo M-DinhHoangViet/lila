@@ -515,6 +515,7 @@ object I18nKeys:
   val `hostColorX` = I18nKey("hostColorX")
   val `createdSimuls` = I18nKey("createdSimuls")
   val `hostANewSimul` = I18nKey("hostANewSimul")
+  val `signUpToHostOrJoinASimul` = I18nKey("signUpToHostOrJoinASimul")
   val `noSimulFound` = I18nKey("noSimulFound")
   val `noSimulExplanation` = I18nKey("noSimulExplanation")
   val `returnToSimulHomepage` = I18nKey("returnToSimulHomepage")
