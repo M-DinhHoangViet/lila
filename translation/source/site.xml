@@ -748,6 +748,8 @@ computer analysis, game chat and shareable URL.</string>
   <string name="builtForTheLoveOfChessNotMoney">Built for the love of chess, not money</string>
   <string name="everybodyGetsAllFeaturesForFree">Everybody gets all features for free</string>
   <string name="zeroAdvertisement">Zero advertisement</string>
+  <string name="entirelyX">Entirely %s!</string>
+  <string name="openSource">Open Source</string>
   <string name="fullFeatured">Full featured</string>
   <string name="phoneAndTablet">Phone and tablet</string>
   <string name="bulletBlitzClassical">Bullet, blitz, classical</string>

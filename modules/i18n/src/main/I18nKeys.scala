@@ -598,6 +598,8 @@ object I18nKeys:
   val `builtForTheLoveOfChessNotMoney` = I18nKey("builtForTheLoveOfChessNotMoney")
   val `everybodyGetsAllFeaturesForFree` = I18nKey("everybodyGetsAllFeaturesForFree")
   val `zeroAdvertisement` = I18nKey("zeroAdvertisement")
+  val `entirelyX` = I18nKey("entirelyX")
+  val `openSource` = I18nKey("openSource")
   val `fullFeatured` = I18nKey("fullFeatured")
   val `phoneAndTablet` = I18nKey("phoneAndTablet")
   val `bulletBlitzClassical` = I18nKey("bulletBlitzClassical")

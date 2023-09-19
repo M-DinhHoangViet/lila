@@ -31,7 +31,7 @@ object mobile:
                 li(trans.builtForTheLoveOfChessNotMoney()),
                 li(trans.everybodyGetsAllFeaturesForFree()),
                 li(trans.zeroAdvertisement()),
-                li("Entirely ", a(href := "https://github.com/lichess-org/lichobile")("Open Source"))
+                li(trans.entirelyX(a(href := "https://github.com/lichess-org/lichobile")(trans.openSource()))
               ),
               h2(trans.fullFeatured()),
               ul(cls := "block")(
@@ -45,7 +45,7 @@ object mobile:
                 li(trans.boardEditor()),
                 li("Lichess TV"),
                 li(trans.followAndChallengeFriends()),
-                li(trans.availableInNbLanguages.pluralSame(80))
+                li(trans.availableInNbLanguages.pluralSame(150))
               )
             ),
             div(cls := "right-side")(
