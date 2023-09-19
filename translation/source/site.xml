@@ -995,4 +995,5 @@ Leave empty to start games from the normal initial position.</string>
   <string name="aboutLichessBot">About Lichess Bots</string>
   <string name="shield">Shields</string>
   <string name="onlineBot">Online bots</string>
+  <string name="previousBlogPosts">Previous blog posts</string>
 </resources>

@@ -513,6 +513,7 @@ object I18nKeys:
   val `simultaneousExhibitions` = I18nKey("simultaneousExhibitions")
   val `host` = I18nKey("host")
   val `hostColorX` = I18nKey("hostColorX")
+  val `yourPendingSimuls` = I18nKey("yourPendingSimuls")
   val `createdSimuls` = I18nKey("createdSimuls")
   val `hostANewSimul` = I18nKey("hostANewSimul")
   val `signUpToHostOrJoinASimul` = I18nKey("signUpToHostOrJoinASimul")
@@ -860,6 +861,7 @@ object I18nKeys:
   val `learnFromVideos` = I18nKey("learnFromVideos")
   val `configureLichess` = I18nKey("configureLichess")
   val `exploreTheSiteAndHaveFun` = I18nKey("exploreTheSiteAndHaveFun")
+  val `previousBlogPosts` = I18nKey("previousBlogPosts")
   val `featuredBot` = I18nKey("featuredBot")
   val `communityBot` = I18nKey("communityBot")
   val `aboutLichessBot` = I18nKey("aboutLichessBot")
@@ -2397,6 +2399,12 @@ object I18nKeys:
     val `playedNbRunsOfPuzzleStorm` = I18nKey("storm:playedNbRunsOfPuzzleStorm")
 
   object ublog:
+    val `communityBlog` = I18nKey("ublog:communityBlog")
+    val `allBlogTopic` = I18nKey("ublog:allBlogTopic")
+    val `friendBlog` = I18nKey("ublog:friendBlog")
+    val `likedBlog` = I18nKey("ublog:likedBlog")
+    val `blogTopic` = I18nKey("ublog:blogTopic")
+    val `lichessOfficialBlog` = I18nKey("lichessOfficialBlog")
     val `xBlog` = I18nKey("ublog:xBlog")
     val `newPost` = I18nKey("ublog:newPost")
     val `editYourBlogPost` = I18nKey("ublog:editYourBlogPost")
