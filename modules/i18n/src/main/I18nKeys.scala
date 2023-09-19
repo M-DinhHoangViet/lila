@@ -853,12 +853,17 @@ object I18nKeys:
   val `improveWithChessTacticsPuzzles` = I18nKey("improveWithChessTacticsPuzzles")
   val `playTheArtificialIntelligence` = I18nKey("playTheArtificialIntelligence")
   val `playOpponentsFromAroundTheWorld` = I18nKey("playOpponentsFromAroundTheWorld")
-  val `ollowYourFriendsOnLichess` = I18nKey("ollowYourFriendsOnLichess")
+  val `followYourFriendsOnLichess` = I18nKey("followYourFriendsOnLichess")
   val `playInTournaments` = I18nKey("playInTournaments")
   val `learnFromStudies` = I18nKey("learnFromStudies")
   val `learnFromVideos` = I18nKey("learnFromVideos")
   val `configureLichess` = I18nKey("configureLichess")
   val `exploreTheSiteAndHaveFun` = I18nKey("exploreTheSiteAndHaveFun")
+  val `featuredBot` = I18nKey("featuredBot")
+  val `communityBot` = I18nKey("communityBot")
+  val `aboutLichessBot` = I18nKey("aboutLichessBot")
+  val `shield` = I18nKey("shield")
+  val `onlineBot` = I18nKey("onlineBot")
 
   object arena:
     val `arenaTournaments` = I18nKey("arena:arenaTournaments")

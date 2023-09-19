@@ -1,6 +1,6 @@
 package views.html.user.show
 
-import lila.app.templating.Environment.given
+import lila.app.templating.Environment.{ given, * }
 import lila.app.ui.ScalatagsTemplate.{ *, given }
 import lila.user.User
 
@@ -22,7 +22,8 @@ object newPlayer:
       ),
       p(
 		if u.kid then trans.kidModeIsEnabled()
-        else trans.enabledKidModeSuggestion(
+        else 
+			trans.enabledKidModeSuggestion(
             a(href := routes.Account.kid)(trans.kidMode()),
 		)
       ),
@@ -32,7 +33,7 @@ object newPlayer:
         li(a(href := routes.Puzzle.home)(trans.improveWithChessTacticsPuzzles)),
         li(a(href := s"${routes.Lobby.home}#ai")(trans.playTheArtificialIntelligence())),
         li(a(href := s"${routes.Lobby.home}#hook")(trans.playOpponentsFromAroundTheWorld())),
-        li(a(href := routes.User.list)(trans.ollowYourFriendsOnLichess())),
+        li(a(href := routes.User.list)(trans.followYourFriendsOnLichess())),
         li(a(href := routes.Tournament.home)(playInTournaments())),
         li(trans.learnFromXAndY(
           a(href := routes.Study.allDefault(1))(trans.learnFromStudies()),
