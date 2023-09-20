@@ -1,6 +1,7 @@
 package views.html.user.show
 
-import lila.api.EmbedContext.given_Lang
+import play.api.i18n.Lang
+
 import lila.app.templating.Environment.given
 import lila.app.ui.ScalatagsTemplate.{ *, given }
 import lila.user.User
@@ -23,11 +24,11 @@ object newPlayer:
       ),
       p(
 		if u.kid then trans.kidModeIsEnabled()
-        else 
+		else
 			trans.enabledKidModeSuggestion(
-            a(href := routes.Account.kid)(trans.kidMode()),
-		)
-      ),
+            a(href := routes.Account.kid)(trans.kidMode())
+			)
+	  ),
       p(trans.whatNowSuggestions()),
       ul(
         li(a(href := routes.Learn.index)(trans.learnChessRules())),

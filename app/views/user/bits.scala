@@ -26,7 +26,7 @@ object bits:
 		trans.shield()
 	  ),
       a(cls := active.active("bots"), href := routes.PlayApi.botOnline)(
-	  trans.onlineBot()
+		trans.onlineBot()
 	  )
     )
 

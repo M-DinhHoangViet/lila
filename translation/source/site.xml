@@ -986,7 +986,7 @@ Leave empty to start games from the normal initial position.</string>
   <string name="playOpponentsFromAroundTheWorld">Play opponents from around the world</string>
   <string name="followYourFriendsOnLichess">Follow your friends on Lichess</string>
   <string name="playInTournaments">Play in tournaments</string>
-  <string name="learnFromXAndY">Learn from $1%s and $2%s</string>
+  <string name="learnFromXAndY">Learn from %1$s and %2$s</string>
   <string name="configureLichess">Configure Lichess to your liking</string>
   <string name="exploreTheSiteAndHaveFun">Explore the site and have fun :)</string>
   <string name="featuredBot">Featured bots</string>
@@ -995,4 +995,42 @@ Leave empty to start games from the normal initial position.</string>
   <string name="shield">Shields</string>
   <string name="onlineBot">Online bots</string>
   <string name="previousBlogPosts">Previous blog posts</string>
+  <string name="website">Website</string>
+  <string name="mobile">Mobile</string>
+  <string name="supportLichess">Support Lichess</string>
+  <string name="zeroAdsAndNoTracking">Zero advertisement, no tracking</string>
+  <string name="playAndCreateTournaments">Play and create %s</string>
+  <string name="playAndCreateSimul">Play and create %s</string>
+  <string name="standardAndEightVariants">Standard chess and %s</string>
+  <string name="deepEngineServerAnalysis">Deep %s server analysis</string>
+  <string name="boardEditorAndAnalysisBoardWithSF">Board editor and analysis board with Stockfish 14+</string>
+  <string name="cloudEngineAnalysis">Cloud engine analysis</string>
+  <string name="studiesSharedAndPersistentAnalysis">Studies (shared and persistent analysis)</string>
+  <string name="chessInsightsDetailedAnalysisOfYourPlay">Chess insights (detailed analysis of your play)</string>
+  <string name="allChessBasicsLessons">All chess basics lessons</string>
+  <string name="tacticalPuzzlesFromUserGames">Tactical puzzles from user games</string>
+  <string name="globalOpeningExplorer0">%s (450 million games!)</string>
+  <string name="globalOpeningExplorer">Global opening explorer</string>
+  <string name="personalOpeningExplorer0">%1$s (also works on %2$s)</string>
+  <string name="personalOpeningExplorer">Personal opening explorer</string>
+  <string name="otherPlayers">other players</string>
+  <string name="sevenPieceEndgameTablebase">7-piece endgame tablebase</string>
+  <string name="downloadOrUploadAnyGameAsPgn">Download/Upload any game as PGN</string>
+  <string name="advancedSearchThroughOverNbLichessGames"></string>
+  <string name="forumTeamsMessagingFriendsChallenges"></string>
+  <string name="availableInNbLanguage">Available in over %s!</string>
+  <string name="nbLanguages">150 languages</string>
+  <string name="themeBoardsPiecesBackground">Light/Dark theme, custom boards, pieces and background</string>
+  <string name="allFeaturesToComeForever">All features to come, forever</string>
+  <string name="xLandscapeSupport">iPhone & Android phones and tablets, landscape support</string>
+  <string name="contributeToLichessAndX">Contribute to Lichess and
+
+get a cool looking Patron icon</string>
+  <string name="yesBothAccountsHaveTheSameFeatures">Yes, both accounts have the same features!</string>
+  <string name="reasonFreeAndPatronAccountSame">That is because Lichess is built for the love of chess.
+
+We believe every chess player deserves the best, and so:</string>
+  <string name="allFeaturesAreFree">All features are free for everybody, forever!</string>
+  <string name="ifYouLoveLichess">If you love Lichess,</string>
+  <string name="supportUsWithAPatronAccount">Support us with a Patron account!</string>
 </resources>

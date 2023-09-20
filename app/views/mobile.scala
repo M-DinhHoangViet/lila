@@ -31,7 +31,7 @@ object mobile:
                 li(trans.builtForTheLoveOfChessNotMoney()),
                 li(trans.everybodyGetsAllFeaturesForFree()),
                 li(trans.zeroAdvertisement()),
-                li(trans.entirelyX(a(href := "https://github.com/lichess-org/lichobile")(trans.openSource()))
+                li(trans.entirelyX(a(href := "https://github.com/lichess-org/lichobile")(trans.openSource())))
               ),
               h2(trans.fullFeatured()),
               ul(cls := "block")(
