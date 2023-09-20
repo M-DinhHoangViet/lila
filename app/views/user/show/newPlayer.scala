@@ -27,8 +27,8 @@ object newPlayer:
 		else
 			trans.enabledKidModeSuggestion(
             a(href := routes.Account.kid)(trans.kidMode())
-			)
-	  ),
+            )
+			),
       p(trans.whatNowSuggestions()),
       ul(
         li(a(href := routes.Learn.index)(trans.learnChessRules())),

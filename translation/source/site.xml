@@ -1022,7 +1022,7 @@ Leave empty to start games from the normal initial position.</string>
   <string name="nbLanguages">150 languages</string>
   <string name="themeBoardsPiecesBackground">Light/Dark theme, custom boards, pieces and background</string>
   <string name="allFeaturesToComeForever">All features to come, forever</string>
-  <string name="xLandscapeSupport">iPhone & Android phones and tablets, landscape support</string>
+  <string name="xLandscapeSupport">iPhone &amp; Android phones and tablets, landscape support</string>
   <string name="contributeToLichessAndX">Contribute to Lichess and
 
 get a cool looking Patron icon</string>

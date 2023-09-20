@@ -24,10 +24,10 @@ object bits:
       ),
       a(cls := active.active("shield"), href := routes.Tournament.shields)(
 		trans.shield()
-	  ),
+		),
       a(cls := active.active("bots"), href := routes.PlayApi.botOnline)(
 		trans.onlineBot()
-	  )
+		)
     )
 
   def miniClosed(u: User)(using Context) =

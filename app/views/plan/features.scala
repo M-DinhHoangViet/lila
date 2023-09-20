@@ -31,26 +31,26 @@ object features:
             tr(check)(
               strong(trans.zeroAdsAndNoTracking())
             ),
-			tr(unlimited)(
+            tr(unlimited)(
               trans.bulletBlitzClassical()
             ),
-			tr(unlimited)(
+            tr(unlimited)(
               trans.correspondenceChess()
             ),
             tr(unlimited)(
               trans.playAndCreateTournaments(
               a(href := routes.Tournament.home)(trans.tournaments())
-			  )
+				)
             ),
             tr(unlimited)(
               trans.playAndCreateSimul(
               a(href := routes.Simul.home)(trans.simultaneousExhibitions())
-			  )
+				)
             ),
             tr(check)(
               trans.standardAndEightVariants(
-              a(href := routes.ContentPage.variantHome)(trans.eightVariants())
-			  )
+              a(href := routes.ContentPage.variantHome)(trans.faq.eightVariants())
+				)
             ),
             tr(custom(s"${lila.fishnet.FishnetLimiter.maxPerDay} per day"))(
 			  trans.deepEngineServerAnalysis(engineFullName)
@@ -97,7 +97,7 @@ object features:
             tr(check)(
 			  trans.globalOpeningExplorer0(
               a(href := s"${routes.UserAnalysis.index}#explorer")(trans.globalOpeningExplorer())
-              )
+				)
             ),
             tr(check)(
               trans.personalOpeningExplorer0(
@@ -116,7 +116,7 @@ object features:
             tr(unlimited)(
 			  trans.advancedSearchThroughOverNbLichessGames(
               a(href := routes.Search.index(1))(trans.search.advancedSearch()),
-			  )
+				)
             ),
             tr(unlimited)(
               a(href := routes.Video.index)(trans.videoLibrary())
@@ -125,8 +125,9 @@ object features:
               trans.forumTeamsMessagingFriendsChallenges()
             ),
             tr(check)(
-              trans.availableInNbLanguage()
+              trans.availableInNbLanguage(
               a(href := "https://crowdin.com/project/lichess")(trans.nbLanguages())
+			  )
             ),
             tr(check)(
               trans.themeBoardsPiecesBackground()
@@ -146,7 +147,7 @@ object features:
             tr(unlimited)(
               trans.bulletBlitzClassical()
             ),
-			tr(unlimited)(
+            tr(unlimited)(
               trans.correspondenceChess()
             ),
             tr(unlimited)(
@@ -159,8 +160,9 @@ object features:
               a(href := routes.Puzzle.home)(trans.puzzles())
             ),
             tr(check)(
-              trans.availableInNbLanguage()
+              trans.availableInNbLanguage(
               a(href := "https://crowdin.com/project/lichess")(trans.nbLanguages())
+			  )
             ),
             tr(check)(
               trans.themeBoardsPiecesBackground()
