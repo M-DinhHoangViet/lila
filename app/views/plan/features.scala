@@ -40,17 +40,17 @@ object features:
             tr(unlimited)(
               trans.playAndCreateTournaments(
               a(href := routes.Tournament.home)(trans.tournaments())
-				)
+              )
             ),
             tr(unlimited)(
               trans.playAndCreateSimul(
               a(href := routes.Simul.home)(trans.simultaneousExhibitions())
-				)
+              )
             ),
             tr(check)(
               trans.standardAndEightVariants(
               a(href := routes.ContentPage.variantHome)(trans.faq.eightVariants())
-				)
+              )
             ),
             tr(custom(s"${lila.fishnet.FishnetLimiter.maxPerDay} per day"))(
 			  trans.deepEngineServerAnalysis(engineFullName)
@@ -97,8 +97,8 @@ object features:
             tr(check)(
 			  trans.globalOpeningExplorer0(
               a(href := s"${routes.UserAnalysis.index}#explorer")(trans.globalOpeningExplorer())
-				)
-            ),
+              )
+			  ),
             tr(check)(
               trans.personalOpeningExplorer0(
               a(href := s"${routes.UserAnalysis.index}#explorer/me")(trans.personalOpeningExplorer()),
@@ -117,7 +117,7 @@ object features:
 			  trans.advancedSearchThroughOverNbLichessGames(
               a(href := routes.Search.index(1))(trans.search.advancedSearch()),
 				)
-            ),
+			  ),
             tr(unlimited)(
               a(href := routes.Video.index)(trans.videoLibrary())
             ),
@@ -127,7 +127,7 @@ object features:
             tr(check)(
               trans.availableInNbLanguage(
               a(href := "https://crowdin.com/project/lichess")(trans.nbLanguages())
-			  )
+              )
             ),
             tr(check)(
               trans.themeBoardsPiecesBackground()
@@ -162,7 +162,7 @@ object features:
             tr(check)(
               trans.availableInNbLanguage(
               a(href := "https://crowdin.com/project/lichess")(trans.nbLanguages())
-			  )
+              )
             ),
             tr(check)(
               trans.themeBoardsPiecesBackground()
@@ -193,7 +193,7 @@ object features:
         p(cls := "explanation")(
           strong(trans.yesBothAccountsHaveTheSameFeatures()),
           br,
-		  trans.reasonFreeAndPatronAccountSame()
+          trans.reasonFreeAndPatronAccountSame()
           br,
           strong(trans.allFeaturesAreFree()),
           br,
