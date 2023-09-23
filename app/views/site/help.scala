@@ -79,7 +79,7 @@ object help:
           localAnalysis,
           row(kbd("z"), trans.toggleAllAnalysis()),
           row(kbd("a"), trans.bestMoveArrow()),
-          row(kbd("v"), "Toggle variation arrows"),
+          row(kbd("v"), trans.toggleVariationArrows()),
           row(kbd("e"), trans.openingEndgameExplorer()),
           row(frag(kbd("shift"), kbd("space")), trans.playFirstOpeningEndgameExplorerMove()),
           row(kbd("r"), trans.keyRequestComputerAnalysis()),
