@@ -8,8 +8,6 @@ import { charRole } from 'chess';
 type Name = string;
 type Path = string;
 
-export type SoundMove = (node?: { san?: string; uci?: string }) => void;
-
 export default new (class implements SoundI {
   ctx = makeAudioContext();
   sounds = new Map<Path, Sound>(); // All loaded sounds and their instances
@@ -61,16 +59,21 @@ export default new (class implements SoundI {
     if (sound && (await this.resumeContext())) await sound.play(this.getVolume() * volume);
   }
 
-  move: SoundMove = throttle(100, async node => {
-    if (this.theme === 'music') {
-      this.music ??= await lichess.loadEsm<SoundMove>('soundMove');
-      this.music(node);
-      return;
+  throttled = throttle(100, (name: Name) => this.play(name));
+
+  async move(o?: { uci?: Uci; san?: string; name?: Name; filter?: 'music' | 'game' }) {
+    if (o?.filter !== 'music' && this.theme !== 'music') {
+      if (o?.name) this.throttled(o.name);
+      else {
+        if (o?.san?.includes('x')) this.throttled('capture');
+        else this.throttled('move');
+        if (o?.san?.endsWith('#') || o?.san?.endsWith('+')) this.throttled('check');
+      }
     }
-    if (node?.san?.includes('x')) this.play('capture');
-    else this.play('move');
-    if (node?.san?.endsWith('#') || node?.san?.endsWith('+')) this.play('check');
-  });
+    if (o?.filter === 'game' || this.theme !== 'music') return;
+    this.music ??= await lichess.loadEsm<SoundMove>('soundMove');
+    this.music(o);
+  }
 
   async countdown(count: number, interval = 500): Promise<void> {
     if (!this.enabled()) return;
@@ -142,7 +145,6 @@ export default new (class implements SoundI {
     if (isIOS()) this.ctx?.resume();
     this.theme = s;
     this.publish();
-    this.move();
   };
 
   set = () => this.theme;
@@ -212,13 +214,19 @@ export default new (class implements SoundI {
           })
           .catch(resolve);
       });
-    return this.ctx?.state === 'running';
+    if (this.ctx?.state !== 'running') return false;
+    $('#warn-no-autoplay').removeClass('shown');
+    return true;
   }
 
   primer = () => {
     // some browsers fail audioContext.resume() on contexts created prior to user interaction
-    this.ctx = makeAudioContext()!;
-    for (const s of this.sounds.values()) s.rewire(this.ctx);
+    if (this.ctx?.state !== 'running') {
+      const ctx = makeAudioContext()!;
+      for (const s of this.sounds.values()) s.rewire(ctx);
+      this.ctx?.close();
+      this.ctx = ctx;
+    }
     $('body').off('mouseup touchend keydown', this.primer);
     setTimeout(() => $('#warn-no-autoplay').removeClass('shown'), 500);
   };
