@@ -356,6 +356,7 @@ object faq:
           )
         ),
         question(
+          "make-a-bot",
           makeABotQ.txt(),
           p(
             makeABotA(
