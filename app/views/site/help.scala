@@ -30,7 +30,7 @@ object help:
     row(kbd("space"), trans.playComputerMove()),
     row(kbd("x"), trans.showThreat())
   )
-  private def phonetics = "abcdefgh"
+  private def phonetics(using Lang) = "abcdefgh"
     .map(_.toString)
     .map: letter =>
       frag(s"${letter.capitalize} ", trans.is(), phonetic(letter), ". ")
