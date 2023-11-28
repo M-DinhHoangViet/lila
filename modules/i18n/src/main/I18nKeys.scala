@@ -896,6 +896,8 @@ object I18nKeys:
     val `averagePerformance` = I18nKey("arena:averagePerformance")
     val `averageScore` = I18nKey("arena:averageScore")
     val `myTournaments` = I18nKey("arena:myTournaments")
+    val `defender` = I18nKey("arena:defender")
+    val `battleOfNbTeamsAndNbLeaders` = I18nKey("arena:battleOfNbTeamsAndNbLeaders")
     val `drawingWithinNbMoves` = I18nKey("arena:drawingWithinNbMoves")
     val `viewAllXTeams` = I18nKey("arena:viewAllXTeams")
 
