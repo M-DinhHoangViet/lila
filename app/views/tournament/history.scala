@@ -7,12 +7,13 @@ import lila.app.ui.ScalatagsTemplate.{ *, given }
 import lila.common.paginator.Paginator
 import lila.tournament.Schedule.Freq
 import lila.tournament.Tournament
+import play.api.i18n.Lang
 
 object history:
 
-  def apply(freq: Freq, pager: Paginator[Tournament])(using PageContext) =
+  def apply(freq: Freq, pager: Paginator[Tournament])(using Lang) =
     views.html.base.layout(
-      title = "Tournament history",
+      title = trans.arena.history.txt(),
       moreJs = infiniteScrollTag,
       moreCss = cssTag("tournament.history")
     ) {
@@ -41,14 +42,14 @@ object history:
   private def nameOf(f: Freq) = if f == Freq.Weekend then "Elite" else f.name
 
   private val allFreqs = List(
-    Freq.Unique,
-    Freq.Marathon,
-    Freq.Shield,
-    Freq.Yearly,
-    Freq.Monthly,
+    Freq.trans.unique(),
+    Freq.trans.tourname.marathon(),
+    Freq.trans.shield(),
+    Freq.trans.yearly,
+    Freq.trans.monthly,
     Freq.Weekend,
-    Freq.Weekly,
-    Freq.Daily,
+    Freq.trans.weekly,
+    Freq.trans.daily,
     Freq.Eastern,
-    Freq.Hourly
+    Freq.trans.hourly
   )

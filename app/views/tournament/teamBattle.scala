@@ -102,7 +102,7 @@ object teamBattle:
         ),
         table(cls := "slist slist-pad")(
           tbody(
-            tr(th("Players"), td(info.nbPlayers)),
+            tr(th(trans.players()), td(info.nbPlayers)),
             ctx.pref.showRatings option frag(
               tr(th(trans.averageElo()), td(info.avgRating)),
               tr(th(trans.arena.averagePerformance()), td(info.avgPerf))

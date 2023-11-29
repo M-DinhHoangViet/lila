@@ -33,11 +33,11 @@ object crud:
 
   def create(form: Form[?])(using PageContext) =
     layout(
-      title = "New tournament",
+      title = trans.newTournament.txt(),
       css = "mod.form"
     ) {
       div(cls := "crud page-menu__content box box-pad")(
-        h1(cls := "box__top")("New tournament"),
+        h1(cls := "box__top")(trans.newTournament()),
         postForm(cls := "form3", action := routes.TournamentCrud.create)(
           spotlightAndTeamBattle(form, none),
           errMsg(form("setup")),

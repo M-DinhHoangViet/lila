@@ -5,6 +5,7 @@ import play.api.i18n.Lang
 import lila.app.templating.Environment.{ given, * }
 import lila.app.ui.ScalatagsTemplate.{ *, given }
 import lila.rating.PerfType
+import play.api.i18n.Lang
 
 import controllers.routes
 
@@ -25,21 +26,21 @@ object leaderboard:
       h2(cls := "text", dataIcon := perfType.icon)(name),
       ul(
         fws.yearly.map { w =>
-          freqWinner(w, "Yearly")
+          freqWinner(w, trans.yearly())
         },
         fws.monthly.map { w =>
-          freqWinner(w, "Monthly")
+          freqWinner(w, trans.monthly())
         },
         fws.weekly.map { w =>
-          freqWinner(w, "Weekly")
+          freqWinner(w, trans.weekly())
         },
         fws.daily.map { w =>
-          freqWinner(w, "Daily")
+          freqWinner(w, trans.daily())
         }
       )
     )
 
-  def apply(winners: lila.tournament.AllWinners)(using PageContext) =
+  def apply(winners: lila.tournament.AllWinners)(using Lang) =
     views.html.base.layout(
       title = "Tournament leaderboard",
       moreCss = cssTag("tournament.leaderboard"),
@@ -47,7 +48,7 @@ object leaderboard:
     ) {
       def eliteWinners =
         section(
-          h2(cls := "text", dataIcon := licon.CrownElite)("Elite Arena"),
+          h2(cls := "text", dataIcon := licon.CrownElite)(trans.tourname.eliteArena()),
           ul(
             winners.elite.map { w =>
               li(
@@ -60,7 +61,7 @@ object leaderboard:
 
       def marathonWinners =
         section(
-          h2(cls := "text", dataIcon := licon.Globe)("Marathon"),
+          h2(cls := "text", dataIcon := licon.Globe)(trans.tourname.marathon()),
           ul(
             winners.marathon.map { w =>
               li(
@@ -75,14 +76,14 @@ object leaderboard:
       main(cls := "page-menu")(
         views.html.user.bits.communityMenu("tournament"),
         div(cls := "page-menu__content box box-pad")(
-          h1(cls := "box__top")("Tournament winners"),
+          h1(cls := "box__top")(trans.tournamentWinners()),
           div(cls := "tournament-leaderboards")(
             eliteWinners,
             freqWinners(winners.hyperbullet, PerfType.Bullet, "HyperBullet"),
             freqWinners(winners.bullet, PerfType.Bullet, "Bullet"),
             freqWinners(winners.superblitz, PerfType.Blitz, "SuperBlitz"),
-            freqWinners(winners.blitz, PerfType.Blitz, "Blitz"),
-            freqWinners(winners.rapid, PerfType.Rapid, "Rapid"),
+            freqWinners(winners.blitz, PerfType.Blitz, trans.blitz()),
+            freqWinners(winners.rapid, PerfType.Rapid, trans.rapid()),
             marathonWinners,
             lila.tournament.WinnersApi.variants.map { v =>
               PerfType.byVariant(v).map { pt =>

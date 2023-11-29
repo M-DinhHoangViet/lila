@@ -72,7 +72,7 @@ object side:
           p(a(href := pos.url)(pos.name))
         } orElse tour.position.map { fen =>
           p(
-            "Custom position",
+            trans.customPosition(),
             separator,
             views.html.base.bits.fenAnalysisLink(fen into chess.format.Fen.Epd)
           )
