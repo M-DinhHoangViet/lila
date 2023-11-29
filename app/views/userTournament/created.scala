@@ -1,6 +1,8 @@
 package views.html
 package userTournament
 
+import play.api.i18n.Lang
+
 import lila.app.templating.Environment.{ given, * }
 import lila.app.ui.ScalatagsTemplate.{ *, given }
 import lila.common.paginator.Paginator
@@ -12,21 +14,21 @@ object created:
 
   private val path = "created"
 
-  def apply(u: User, pager: Paginator[lila.tournament.Tournament])(using PageContext) =
+  def apply(u: User, pager: Paginator[lila.tournament.Tournament])(using Lang) =
     bits.layout(
       u = u,
       title = s"${u.username} created tournaments",
       path = path,
       moreJs = infiniteScrollTag
     ):
-      if pager.nbResults == 0 then div(cls := "box-pad")(u.username, " hasn't created any tournament yet!")
+      if pager.nbResults == 0 then div(cls := "box-pad")(trans.xHasNotCreatedAnyTourYet(u.username))
       else
         div(cls := "tournament-list")(
           table(cls := "slist")(
             thead(
               tr(
                 th(cls := "count")(pager.nbResults),
-                th(colspan := 2)(h1(userLink(u, withOnline = true), " tournaments")),
+                th(colspan := 2)(h1(trans.xTournaments(userLink(u, withOnline = true)))),
                 th(trans.winner()),
                 th(trans.players())
               )

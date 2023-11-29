@@ -1,6 +1,8 @@
 package views.html
 package userTournament
 
+import play.api.i18n.Lang
+
 import lila.app.templating.Environment.{ given, * }
 import lila.app.ui.ScalatagsTemplate.{ *, given }
 import lila.common.paginator.Paginator
@@ -8,20 +10,20 @@ import lila.user.User
 
 object upcoming:
 
-  def apply(u: User, pager: Paginator[lila.tournament.Tournament])(using PageContext) =
+  def apply(u: User, pager: Paginator[lila.tournament.Tournament])(using Lang) =
     bits.layout(
       u = u,
       title = s"${u.username} upcoming tournaments",
       path = "upcoming"
     ):
-      if pager.nbResults == 0 then div(cls := "box-pad")(u.username, " hasn't joined any tournament yet!")
+      if pager.nbResults == 0 then div(cls := "box-pad")(trans.xHasNotJoinedAnyTourYet(u.username))
       else
         div(cls := "tournament-list")(
           table(cls := "slist")(
             thead(
               tr(
                 th(cls := "count")(pager.nbResults),
-                th(colspan := 2)(h1(userLink(u, withOnline = true), " upcoming tournaments")),
+                th(colspan := 2)(h1(trans.upcomingTours(userLink(u, withOnline = true)))),
                 th(trans.players())
               )
             ),
