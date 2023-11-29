@@ -36,12 +36,12 @@ object form:
 
   def edit(form: Form[SimulForm.Setup], teams: List[LightTeam], simul: Simul)(using PageContext) =
     views.html.base.layout(
-      title = s"Edit ${simul.fullName}",
+      title = trans.editX.txt(simul.fullName),
       moreCss = cssTag("simul.form"),
       moreJs = jsModule("flatpickr")
     ) {
       main(cls := "box box-pad page-small simul-form")(
-        h1(cls := "box__top")("Edit ", simul.fullName),
+        h1(cls := "box__top")(trans.editX(simul.fullName)),
         postForm(cls := "form3", action := routes.Simul.update(simul.id))(
           formContent(form, teams, simul.some),
           form3.actions(
@@ -71,7 +71,7 @@ object form:
           small(cls := "form-help")(trans.inappropriateNameWarning())
         )
       },
-      form3.fieldset("Games")(
+      form3.fieldset(trans.games())(
         form3.group(form("variant"), trans.simulVariantsHint()) { f =>
           frag(
             div(cls := "variants")(
@@ -103,7 +103,7 @@ object form:
           )
         )
       ),
-      form3.fieldset("Clock")(
+      form3.fieldset(trans.clock())(
         form3.split(
           form3.group(
             form("clockTime"),
@@ -134,7 +134,7 @@ object form:
           )
         )
       ),
-      form3.fieldset("Entry conditions")(
+      form3.fieldset(trans.entryConditions())(
         form3.split(
           teams.nonEmpty option
             form3.group(form("conditions.team.teamId"), trans.onlyMembersOfTeam(), half = true)(

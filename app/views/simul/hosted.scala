@@ -18,7 +18,7 @@ object hosted:
     ) {
       main(cls := "page-small box simul-list")(
         if pager.nbResults == 0 then
-          div(cls := "box__top")(h1(userLink(user), " hasn't hosted any simuls yet!"))
+          div(cls := "box__top")(h1(trans.xHasNotHostedAnySimulsYet(userLink(user))))
         else
           table(cls := "slist slist-pad")(
             thead(
