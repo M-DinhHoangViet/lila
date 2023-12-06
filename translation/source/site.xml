@@ -987,4 +987,16 @@ Leave empty to start games from the normal initial position.</string>
   <string name="showMeEverything">Show me everything</string>
   <string name="lichessPatronInfo">Lichess is a charity and entirely free/libre open source software.
 All operating costs, development, and content are funded solely by user donations.</string>
+  <string name="grandmaster">Grandmaster</string>
+  <string name="womanGrandmaster">Woman Grandmaster</string>
+  <string name="internationalMaster">International Master</string>
+  <string name="womanInternationalMaster">Woman International Master</string>
+  <string name="fideMaster">FIDE Master</string>
+  <string name="womanFideMaster">Woman FIDE Master</string>
+  <string name="candidateMaster">Candidate Master</string>
+  <string name="womanCandidateMaster">Woman Candidate Master</string>
+  <string name="nationalMaster">National Master</string>
+  <string name="womanNationalMaster">Woman National Master</string>
+  <string name="lichessMaster">Lichess Master</string>
+  <string name="chessRobot">Chess Robot</string>
 </resources>

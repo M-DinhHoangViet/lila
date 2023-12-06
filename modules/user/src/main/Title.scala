@@ -1,24 +1,26 @@
 package lila.user
 
-object Title:
+import play.api.i18n.Lang
 
+object Title:
+  import lila.i18n.I18nKeys
   val LM  = UserTitle("LM")
   val BOT = UserTitle("BOT")
 
   // important: names are as stated on FIDE profile pages
-  val all = Seq[(UserTitle, String)](
-    UserTitle("GM")  -> "Grandmaster",
-    UserTitle("WGM") -> "Woman Grandmaster",
-    UserTitle("IM")  -> "International Master",
-    UserTitle("WIM") -> "Woman Intl. Master",
-    UserTitle("FM")  -> "FIDE Master",
-    UserTitle("WFM") -> "Woman FIDE Master",
-    UserTitle("NM")  -> "National Master",
-    UserTitle("CM")  -> "Candidate Master",
-    UserTitle("WCM") -> "Woman Candidate Master",
-    UserTitle("WNM") -> "Woman National Master",
-    LM               -> "Lichess Master",
-    BOT              -> "Chess Robot"
+  val all (using Lang): String = Seq[(UserTitle, String)](
+    UserTitle("GM")  -> trans.grandmaster(),
+    UserTitle("WGM") -> trans.womanGrandmaster(),
+    UserTitle("IM")  -> trans.internationalMaster(),
+    UserTitle("WIM") -> trans.womanInternationalMaster(),
+    UserTitle("FM")  -> trans.fideMaster(),
+    UserTitle("WFM") -> trans.womanFideMaster(),
+    UserTitle("NM")  -> trans.nationalMaster(),
+    UserTitle("CM")  -> trans.candidateMaster(),
+    UserTitle("WCM") -> trans.womanCandidateMaster(),
+    UserTitle("WNM") -> trans.womanNationalMaster(),
+    LM               -> trans.lichessMaster(),
+    BOT              -> trans.chessRobot()
   )
 
   val names          = all.toMap
