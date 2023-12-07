@@ -8,7 +8,7 @@ object Title:
   val BOT = UserTitle("BOT")
 
   // important: names are as stated on FIDE profile pages
-  val all (using Lang): String = Seq[(UserTitle, String)](
+  val all (using Lang) = Seq[(UserTitle, String)](
     UserTitle("GM")  -> trans.grandmaster(),
     UserTitle("WGM") -> trans.womanGrandmaster(),
     UserTitle("IM")  -> trans.internationalMaster(),
