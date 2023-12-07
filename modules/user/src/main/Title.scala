@@ -1,9 +1,9 @@
 package lila.user
 
 import play.api.i18n.Lang
+import lila.i18n.I18nKeys
 
 object Title:
-  import lila.i18n.I18nKeys
   val LM  = UserTitle("LM")
   val BOT = UserTitle("BOT")
 
