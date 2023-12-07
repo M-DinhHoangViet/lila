@@ -1,6 +1,7 @@
 package lila.user
 
 import play.api.i18n.Lang
+import play.api.libs.json.*
 import lila.i18n.I18nKeys
 
 object Title:
