@@ -9,18 +9,18 @@ object Title:
 
   // important: names are as stated on FIDE profile pages
   val all = Seq[(UserTitle, String)](
-    UserTitle("GM")  -> trans.grandmaster(),
-    UserTitle("WGM") -> trans.womanGrandmaster(),
-    UserTitle("IM")  -> trans.internationalMaster(),
-    UserTitle("WIM") -> trans.womanInternationalMaster(),
-    UserTitle("FM")  -> trans.fideMaster(),
-    UserTitle("WFM") -> trans.womanFideMaster(),
-    UserTitle("NM")  -> trans.nationalMaster(),
-    UserTitle("CM")  -> trans.candidateMaster(),
-    UserTitle("WCM") -> trans.womanCandidateMaster(),
-    UserTitle("WNM") -> trans.womanNationalMaster(),
-    LM               -> trans.lichessMaster(),
-    BOT              -> trans.chessRobot()
+    UserTitle("GM")  -> lila.i18n.I18nKeys.grandmaster(),
+    UserTitle("WGM") -> lila.i18n.I18nKeys.womanGrandmaster(),
+    UserTitle("IM")  -> lila.i18n.I18nKeys.internationalMaster(),
+    UserTitle("WIM") -> lila.i18n.I18nKeys.womanInternationalMaster(),
+    UserTitle("FM")  -> lila.i18n.I18nKeys.fideMaster(),
+    UserTitle("WFM") -> lila.i18n.I18nKeys.womanFideMaster(),
+    UserTitle("NM")  -> lila.i18n.I18nKeys.nationalMaster(),
+    UserTitle("CM")  -> lila.i18n.I18nKeys.candidateMaster(),
+    UserTitle("WCM") -> lila.i18n.I18nKeys.womanCandidateMaster(),
+    UserTitle("WNM") -> lila.i18n.I18nKeys.womanNationalMaster(),
+    LM               -> lila.i18n.I18nKeys.lichessMaster(),
+    BOT              -> lila.i18n.I18nKeys.chessRobot()
   )
 
   val names          = all.toMap
