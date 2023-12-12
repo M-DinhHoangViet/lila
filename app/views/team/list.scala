@@ -36,7 +36,7 @@ object list:
           standardFlash.map(div(cls := "box__pad")(_)),
           ctx.me.filter(me => teams.size > Team.maxJoin(me)) map { me =>
             flashMessage("failure"):
-              messageJoinedMaxTeam()
+              messageJoinedMaxTeam(teams.size, Team.maxJoin(me))
           },
           table(cls := "slist slist-pad")(
             if teams.nonEmpty then tbody(teams.map(bits.teamTr(_)))
