@@ -19,6 +19,7 @@ export default function table(ctrl: LobbyController) {
           ['hook', 'createAGame', hookDisabled],
           ['friend', 'playWithAFriend', hasOngoingRealTimeGame],
           ['ai', 'playWithTheMachine', hasOngoingRealTimeGame],
+          ['bot', 'playWithABot', hookDisabled],
         ].map(([gameType, transKey, disabled]: [GameType, string, boolean]) =>
           h(
             `button.button.button-metal.config_${gameType}`,

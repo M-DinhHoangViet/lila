@@ -52,7 +52,8 @@ object home:
           div(cls := "lobby__start")(
             button(cls := "button button-metal", tpe := "button", trans.createAGame()),
             button(cls := "button button-metal", tpe := "button", trans.playWithAFriend()),
-            button(cls := "button button-metal", tpe := "button", trans.playWithTheMachine())
+            button(cls := "button button-metal", tpe := "button", trans.playWithTheMachine()),
+            button(cls := "button button-metal", tpe := "button", trans.playWithABot())
           )
         ),
         currentGame
@@ -181,6 +182,7 @@ object home:
     trans.createAGame,
     trans.playWithAFriend,
     trans.playWithTheMachine,
+    trans.playWithABot,
     trans.strength,
     trans.pasteTheFenStringHere,
     trans.quickPairing,

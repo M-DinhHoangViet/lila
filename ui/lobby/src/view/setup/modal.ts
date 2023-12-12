@@ -55,4 +55,13 @@ const views = {
       colorButtons(ctrl),
     ]),
   ],
+  bot: (ctrl: LobbyController): MaybeVNodes => [
+    h('h2', ctrl.trans('playWithABot')),
+    h('div.setup-content', [
+      variantPicker(ctrl),
+      fenInput(ctrl),
+      timePickerAndSliders(ctrl, true),
+      colorButtons(ctrl),
+    ]),
+  ],
 };

@@ -5,6 +5,7 @@ package lila.i18n
 object I18nKeys:
   val `playWithAFriend` = I18nKey("playWithAFriend")
   val `playWithTheMachine` = I18nKey("playWithTheMachine")
+  val `playWithABot` = I18nKey("playWithABot")
   val `toInviteSomeoneToPlayGiveThisUrl` = I18nKey("toInviteSomeoneToPlayGiveThisUrl")
   val `gameOver` = I18nKey("gameOver")
   val `waitingForOpponent` = I18nKey("waitingForOpponent")

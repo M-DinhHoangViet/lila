@@ -19,7 +19,7 @@ object actions:
     div(cls := "relation-actions btn-rack")(
       (!ctx.is(user) && !blocked) option a(
         titleOrText(trans.challenge.challengeToPlay.txt()),
-        href     := s"${routes.Lobby.home}?user=${user.name}#friend",
+        href     := s"${routes.Lobby.home}?user=${user.name}${if user.isBot then "#bot" else "#friend"}",
         cls      := "btn-rack__btn",
         dataIcon := licon.Swords
       ),

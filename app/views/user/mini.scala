@@ -59,7 +59,7 @@ object mini:
                 dataIcon := licon.Swords,
                 cls      := "btn-rack__btn",
                 title    := trans.challenge.challengeToPlay.txt(),
-                href     := s"${routes.Lobby.home}?user=${u.username}#friend"
+                href     := s"${routes.Lobby.home}?user=${u.username}${if u.isBot then "#bot" else "#friend"}"
               )
             ),
             views.html.relation.mini(u.id, blocked, followable, rel)
