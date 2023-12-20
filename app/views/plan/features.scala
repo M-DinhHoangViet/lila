@@ -177,7 +177,7 @@ object features:
           a(cls := "button", href := routes.Plan.index)(trans.features.supportUsWithAPatronAccount())
         )
 
-  private def header(name: Frag)(using Lang) =
+  def header(name: Frag)(using Lang) =
     thead(
       st.tr(th(name), th(trans.patron.freeAccount()), th(trans.patron.lichessPatron()))
     )
