@@ -177,6 +177,7 @@
   <string name="latestForumPosts">Latest forum posts</string>
   <string name="players">Players</string>
   <string name="friends">Friends</string>
+  <string name="otherPlayers">other players</string>
   <string name="discussions">Conversations</string>
   <string name="today">Today</string>
   <string name="yesterday">Yesterday</string>
@@ -987,4 +988,7 @@ Leave empty to start games from the normal initial position.</string>
   <string name="showMeEverything">Show me everything</string>
   <string name="lichessPatronInfo">Lichess is a charity and entirely free/libre open source software.
 All operating costs, development, and content are funded solely by user donations.</string>
+  <string name="website">Website</string>
+  <string name="mobile">Mobile</string>
+  <string name="supportLichess">Support Lichess</string>
 </resources>

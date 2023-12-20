@@ -26,172 +26,159 @@ object features:
     ):
       main(cls := "box box-pad features")(
         table(
-          header(h1(dataIcon := licon.ScreenDesktop)("Website")),
+          header(h1(dataIcon := licon.ScreenDesktop)(trans.website())),
           tbody(
             tr(check)(
-              strong("Zero ads")
+              strong(trans.features.zeroAdsAndNoTracking())
             ),
-            tr(check)(
-              strong("No tracking")
-            ),
-            tr(unlimited)(
-              "Play and create ",
-              a(href := routes.Tournament.home)("tournaments")
-            ),
-            tr(unlimited)(
-              "Play and create ",
-              a(href := routes.Simul.home)("simultaneous exhibitions")
-            ),
-            tr(unlimited)(
-              "Correspondence chess with conditional premoves"
-            ),
-            tr(check)(
-              "Standard chess and ",
-              a(href := routes.ContentPage.variantHome)("8 chess variants (Crazyhouse, Chess960, Horde, ...)")
-            ),
-            tr(custom(s"${lila.fishnet.FishnetLimiter.maxPerDay} per day"))(
-              "Deep ",
-              engineFullName,
-              " server analysis"
-            ),
-            tr(unlimited)(
-              "Instant local Stockfish 14+ analysis (depth 99)"
-            ),
-            tr(unlimited)(
-              a(href := "https://lichess.org/blog/WN-gLzAAAKlI89Xn/thousands-of-stockfish-analysers")(
-                "Cloud engine analysis"
-              )
-            ),
-            tr(unlimited)(
-              a(href := "https://lichess.org/blog/WFvLpiQAACMA8e9D/learn-from-your-mistakes")(
-                "Learn from your mistakes"
-              )
-            ),
-            tr(unlimited)(
-              a(href := "https://lichess.org/blog/V0KrLSkAAMo3hsi4/study-chess-the-lichess-way")(
-                "Studies (shared and persistent analysis)"
-              )
-            ),
-            tr(unlimited)(
-              a(href := "https://lichess.org/blog/VmZbaigAABACtXQC/chess-insights")(
-                "Chess insights (detailed analysis of your play)"
-              )
-            ),
-            tr(check)(
-              a(href := routes.Learn.index)("All chess basics lessons")
-            ),
-            tr(unlimited)(
-              a(href := routes.Puzzle.home)("Tactical puzzles from user games")
-            ),
-            tr(unlimited)(
-              a(href := routes.Puzzle.streak)("Puzzle Streak"),
-              ", ",
-              a(href := routes.Storm.home)("Puzzle Storm"),
-              ", ",
-              a(href := routes.Racer.home)("Puzzle Racer")
-            ),
-            tr(check)(
-              a(href := s"${routes.UserAnalysis.index}#explorer")("Global opening explorer"),
-              " (430 million games!)"
-            ),
-            tr(check)(
-              a(href := s"${routes.UserAnalysis.index}#explorer/me")("Personal opening explorer"),
-              " (also works on ",
-              a(href := s"${routes.UserAnalysis.index}#explorer/DrNykterstein")("other players"),
-              ")"
-            ),
-            tr(unlimited)(
-              a(href := s"${routes.UserAnalysis.parseArg("QN4n1/6r1/3k4/8/b2K4/8/8/8_b_-_-")}#explorer")(
-                "7-piece endgame tablebase"
-              )
-            ),
-            tr(check)(
-              "Download/Upload any game as PGN"
-            ),
-            tr(unlimited)(
-              a(href := routes.Search.index(1))("Advanced search"),
-              " through Lichess 4 billion games"
-            ),
-            tr(unlimited)(
-              a(href := routes.Video.index)("Chess video library")
-            ),
-            tr(check)(
-              "Forum, teams, messaging, friends, challenges"
-            ),
-            tr(check)(
-              "Available in ",
-              a(href := "https://crowdin.com/project/lichess")("80+ languages")
-            ),
-            tr(check)(
-              "Light/dark theme, custom boards, pieces and background"
-            ),
-            tr(check)(
-              strong("All features to come, forever")
+            tr(unlimited)(a(href := routes.Tournament.home)(trans.features.playAndCreateTournaments()))
+          ),
+          tr(unlimited)(a(href := routes.Simul.home)(trans.features.playAndCreateSimul()))
+          ),
+          tr(unlimited)(
+            trans.features.correspondenceWithConditionalPremoves()
+          ),
+          tr(check)(
+            trans.features.standardChessAndX(
+              a(href := routes.ContentPage.variantHome)(trans.faq.eightVariants())
             )
           ),
-          header(h1(dataIcon := licon.PhoneMobile)("Mobile")),
-          tbody(
-            tr(check)(
-              strong("Zero ads, no tracking")
-            ),
-            tr(unlimited)(
-              "Online and offline games, with 8 variants"
-            ),
-            tr(unlimited)(
-              "Bullet, Blitz, Rapid, Classical and Correspondence chess"
-            ),
-            tr(unlimited)(
-              a(href := routes.Tournament.home)("Arena tournaments")
-            ),
-            tr(check)(
-              "Board editor and analysis board with Stockfish 14+"
-            ),
-            tr(unlimited)(
-              a(href := routes.Puzzle.home)("Tactics puzzles")
-            ),
-            tr(check)(
-              "Available in 80+ languages"
-            ),
-            tr(check)(
-              "Light and dark theme, custom boards and pieces"
-            ),
-            tr(check)(
-              "iPhone & Android phones and tablets, landscape support"
-            ),
-            tr(check)(
-              strong("All features to come, forever")
+          tr(custom(s"${lila.fishnet.FishnetLimiter.maxPerDay} per day"))(
+            trans.features.deepXServerAnalysis(engineFullName)
+          ),
+          tr(unlimited)(
+            trans.features.boardEditorAndAnalysisBoardWithEngine("Stockfish & Fairy-Stockfish")
+          ),
+          tr(unlimited)(
+            a(href := "https://lichess.org/blog/WN-gLzAAAKlI89Xn/thousands-of-stockfish-analysers")(
+              trans.features.cloudEngineAnalysis()
             )
           ),
-          header(h1("Support Lichess")),
-          tbody(cls := "support")(
-            st.tr(
-              th(
-                "Contribute to Lichess and",
-                br,
-                "get a cool looking Patron icon"
-              ),
-              td("-"),
-              td(span(dataIcon := patronIconChar, cls := "is is-green text check")("Yes"))
-            ),
-            st.tr(cls := "price")(
-              th,
-              td(cls := "green")("$0"),
-              td(a(href := routes.Plan.index, cls := "green button")("$5/month"))
+          tr(unlimited)(
+            a(href := "https://lichess.org/blog/WFvLpiQAACMA8e9D/learn-from-your-mistakes")(
+              trans.learnFromYourMistakes()
             )
+          ),
+          tr(unlimited)(
+            a(href := "https://lichess.org/blog/V0KrLSkAAMo3hsi4/study-chess-the-lichess-way")(
+              trans.features.studies()
+            )
+          ),
+          tr(unlimited)(
+            a(href := "https://lichess.org/blog/VmZbaigAABACtXQC/chess-insights")(
+              trans.features.chessInsights()
+            )
+          ),
+          tr(check)(
+            a(href := routes.Learn.index)(trans.features.allChessBasicsLessons())
+          ),
+          tr(unlimited)(
+            a(href := routes.Puzzle.home)(trans.features.tacticalPuzzlesFromUserGames())
+          ),
+          tr(unlimited)(
+            a(href := routes.Puzzle.streak)("Puzzle Streak"),
+            ", ",
+            a(href := routes.Storm.home)("Puzzle Storm"),
+            ", ",
+            a(href := routes.Racer.home)("Puzzle Racer")
+          ),
+          tr(check)(
+            a(href := s"${routes.UserAnalysis.index}#explorer")(
+              trans.features.globalOpeningExplorerInNbGames("4300000")
+            )
+          ),
+          tr(check)(
+            trans.features.personalOpeningExplorerX(
+              a(href := s"${routes.UserAnalysis.index}#explorer/me")(trans.features.personalOpeningExplorer()),
+              a(href := s"${routes.UserAnalysis.index}#explorer/DrNykterstein")(trans.otherPlayers())
+            )
+          ),
+          tr(unlimited)(
+            a(href := s"${routes.UserAnalysis.parseArg("QN4n1/6r1/3k4/8/b2K4/8/8/8_b_-_-")}#explorer")(
+              trans.features.endgameTablebase()
+            )
+        ),
+          tr(check)(
+            trans.features.downloadOrUploadAnyGameAsPgn()
+          ),
+          tr(unlimited)(
+            trans.features.xThroughLichessBillionGames(
+              a(href := routes.Search.index(1))(trans.search.advancedSearch())
+            )
+          ),
+          tr(unlimited)(
+            a(href := routes.Video.index)(trans.videoLibrary())
+          ),
+          tr(check)(
+            trans.features.tvForumBlogTeamsMessagingFriendsChallenges()
+          ),
+          tr(check)(
+            trans.availableInNbLanguages(a(href := "https://crowdin.com/project/lichess")("140+"))
+          ),
+          tr(check)(
+            trans.features.lightOrDarkThemeCustomBoardsPiecesAndBackground()
+          ),
+          tr(check)(
+            strong(trans.features.allFeaturesToCome())
+          ),
+        header(h1(dataIcon := licon.PhoneMobile)(trans.mobile())),
+        tbody(
+            tr(check)(
+              strong(trans.features.zeroAdsAndNoTracking())
+            ),
+            tr(unlimited)(
+              trans.onlineAndOfflinePlay()
+            ),
+            tr(unlimited)(
+              trans.features.ultraBulletBulletBlitzRapidClassicalAndCorrespondenceChess()
+            ),
+            tr(unlimited)(
+              a(href := routes.Tournament.home)(trans.arena.arenaTournaments())
+            ),
+            tr(check)(
+              trans.features.boardEditorAndAnalysisBoardWithEngine("Stockfish 14")
+            ),
+            tr(unlimited)(
+              a(href := routes.Puzzle.home)(trans.features.tacticalPuzzlesFromUserGames())
+            ),
+            tr(check)(
+              trans.availableInNbLanguages(a(href := "https://crowdin.com/project/lichess")("100+"))
+            ),
+            tr(check)(
+              trans.features.lightOrDarkThemeCustomBoardsPiecesAndBackground()
+            ),
+            tr(check)(
+              trans.features.landscapeSupportOnApp()
+            ),
+            tr(check)(
+              strong(trans.features.allFeaturesToCome())
+            )
+            ),
+        header(h1(trans.supportLichess())),
+        tbody(cls := "support")(
+          st.tr(
+            th(trans.features.contributeToLichessAndGetIcon()),
+            td("-"),
+            td(span(dataIcon := patronIconChar, cls := "is is-green text check")(trans.yes()))
+          ),
+          st.tr(cls := "price")(
+            th,
+            td(cls := "green")("$0"),
+            td(a(href := routes.Plan.index, cls := "green button")("$5/month"))
           )
         ),
         p(cls := "explanation")(
-          strong("Yes, both accounts have the same features!"),
+          strong(trans.features.everybodyGetsAllFeaturesForFree()),
           br,
-          "That is because Lichess is built for the love of chess.",
+          trans.builtForTheLoveOfChessNotMoney(),
           br,
-          "We believe every chess player deserves the best, and so:",
+          trans.features.weBelieveEveryChessPlayerDeservesTheBest(),
           br,
           br,
-          strong("all features are free for everybody, forever!"),
+          strong(trans.features.allFeaturesAreFreeForEverybody()),
           br,
-          "If you love Lichess, ",
-          a(cls := "button", href := routes.Plan.index)("Support us with a Patron account!")
+          trans.features.ifYouLoveLichess(),
+          a(cls := "button", href := routes.Plan.index)(trans.features.supportUsWithAPatronAccount())
         )
       )
 
@@ -200,9 +187,11 @@ object features:
       st.tr(th(name), th(trans.patron.freeAccount()), th(trans.patron.lichessPatron()))
     )
 
-  private val unlimited = span(dataIcon := licon.Checkmark, cls := "is is-green text unlimited")("Unlimited")
+  private def unlimited(using Lang) =
+    span(dataIcon := licon.Checkmark, cls := "is is-green text unlimited")(trans.unlimited())
 
-  private val check = span(dataIcon := licon.Checkmark, cls := "is is-green text check")("Yes")
+  private def check(using Lang) =
+    span(dataIcon := licon.Checkmark, cls := "is is-green text check")(trans.yes())
 
   private def custom(str: String) = span(dataIcon := licon.Checkmark, cls := "is is-green text check")(str)
 
