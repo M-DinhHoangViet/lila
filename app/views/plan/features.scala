@@ -31,98 +31,94 @@ object features:
             tr(check)(
               strong(trans.features.zeroAdsAndNoTracking())
             ),
-            tr(unlimited)(a(href := routes.Tournament.home)(trans.features.playAndCreateTournaments()))
-          ),
-          tr(unlimited)(a(href := routes.Simul.home)(trans.features.playAndCreateSimul()))
-          ),
-          tr(unlimited)(
-            trans.features.correspondenceWithConditionalPremoves()
-          ),
-          tr(check)(
-            trans.features.standardChessAndX(
-              a(href := routes.ContentPage.variantHome)(trans.faq.eightVariants())
-            )
-          ),
-          tr(custom(s"${lila.fishnet.FishnetLimiter.maxPerDay} per day"))(
-            trans.features.deepXServerAnalysis(engineFullName)
-          ),
-          tr(unlimited)(
-            trans.features.boardEditorAndAnalysisBoardWithEngine("Stockfish & Fairy-Stockfish")
-          ),
-          tr(unlimited)(
-            a(href := "https://lichess.org/blog/WN-gLzAAAKlI89Xn/thousands-of-stockfish-analysers")(
-              trans.features.cloudEngineAnalysis()
-            )
-          ),
-          tr(unlimited)(
-            a(href := "https://lichess.org/blog/WFvLpiQAACMA8e9D/learn-from-your-mistakes")(
-              trans.learnFromYourMistakes()
-            )
-          ),
-          tr(unlimited)(
-            a(href := "https://lichess.org/blog/V0KrLSkAAMo3hsi4/study-chess-the-lichess-way")(
-              trans.features.studies()
-            )
-          ),
-          tr(unlimited)(
-            a(href := "https://lichess.org/blog/VmZbaigAABACtXQC/chess-insights")(
-              trans.features.chessInsights()
-            )
-          ),
-          tr(check)(
-            a(href := routes.Learn.index)(trans.features.allChessBasicsLessons())
-          ),
-          tr(unlimited)(
-            a(href := routes.Puzzle.home)(trans.features.tacticalPuzzlesFromUserGames())
-          ),
-          tr(unlimited)(
-            a(href := routes.Puzzle.streak)("Puzzle Streak"),
-            ", ",
-            a(href := routes.Storm.home)("Puzzle Storm"),
-            ", ",
-            a(href := routes.Racer.home)("Puzzle Racer")
-          ),
-          tr(check)(
-            a(href := s"${routes.UserAnalysis.index}#explorer")(
-              trans.features.globalOpeningExplorerInNbGames("4300000")
-            )
-          ),
-          tr(check)(
-            trans.features.personalOpeningExplorerX(
+            tr(unlimited)(
+              a(href := routes.Tournament.home)(trans.features.playAndCreateTournaments()))
+            ),
+            tr(unlimited)(
+              a(href := routes.Tournament.home)(trans.features.playAndCreateSimul()))
+            ),
+            tr(unlimited)(
+              trans.features.correspondenceWithConditionalPremoves()
+            ),
+            tr(check)(
+              trans.features.standardChessAndX(
+              a(href := routes.ContentPage.variantHome)(trans.faq.eightVariants()))
+            ),
+            tr(custom(s"${lila.fishnet.FishnetLimiter.maxPerDay} per day"))(
+              trans.features.deepXServerAnalysis(engineFullName)
+            ),
+            tr(unlimited)(
+              trans.features.boardEditorAndAnalysisBoardWithEngine("Stockfish 16, Fairy-Stockfish 14")
+            ),
+            tr(unlimited)(
+              a(href := "https://lichess.org/blog/WN-gLzAAAKlI89Xn/thousands-of-stockfish-analysers")(
+                trans.features.cloudEngineAnalysis()
+              )
+            ),
+            tr(unlimited)(
+              a(href := "https://lichess.org/blog/WFvLpiQAACMA8e9D/learn-from-your-mistakes")(
+                trans.learnFromYourMistakes()
+              )
+            ),
+            tr(unlimited)(
+              a(href := "https://lichess.org/blog/V0KrLSkAAMo3hsi4/study-chess-the-lichess-way")(
+                trans.features.studies()
+              )
+            ),
+            tr(unlimited)(
+              a(href := "https://lichess.org/blog/VmZbaigAABACtXQC/chess-insights")(
+                trans.features.chessInsights()
+              )
+            ),
+            tr(check)(
+              a(href := routes.Learn.index)(trans.features.allChessBasicsLessons())
+            ),
+            tr(unlimited)(
+              a(href := routes.Puzzle.home)(trans.features.tacticalPuzzlesFromUserGames())
+            ),
+            tr(unlimited)(
+              a(href := routes.Puzzle.streak)("Puzzle Streak"),
+              ", ",
+              a(href := routes.Storm.home)("Puzzle Storm"),
+              ", ",
+              a(href := routes.Racer.home)("Puzzle Racer")
+            ),
+            tr(check)(
+              a(href := s"${routes.UserAnalysis.index}#explorer")(trans.features.globalOpeningExplorerInNbGames("4300000"))
+            ),
+            tr(check)(
+              trans.features.personalOpeningExplorerX(
               a(href := s"${routes.UserAnalysis.index}#explorer/me")(trans.features.personalOpeningExplorer()),
-              a(href := s"${routes.UserAnalysis.index}#explorer/DrNykterstein")(trans.otherPlayers())
-            )
+              a(href := s"${routes.UserAnalysis.index}#explorer/DrNykterstein")(trans.otherPlayers()))
+            ),
+            tr(unlimited)(
+              a(href := s"${routes.UserAnalysis.parseArg("QN4n1/6r1/3k4/8/b2K4/8/8/8_b_-_-")}#explorer")(
+                trans.features.endgameTablebase())
+            ),
+            tr(check)(
+              trans.features.downloadOrUploadAnyGameAsPgn()
+            ),
+            tr(unlimited)(
+              trans.features.xThroughLichessBillionGames(
+              a(href := routes.Search.index(1))(trans.search.advancedSearch()))
+            ),
+            tr(unlimited)(
+              a(href := routes.Video.index)(trans.videoLibrary())
+            ),
+            tr(check)(
+              trans.features.tvForumBlogTeamsMessagingFriendsChallenges()
+            ),
+            tr(check)(
+              trans.availableInNbLanguages(a(href := "https://crowdin.com/project/lichess")("140+"))
+            ),
+            tr(check)(
+              trans.features.lightOrDarkThemeCustomBoardsPiecesAndBackground()
+            ),
+            tr(check)(
+              strong(trans.features.allFeaturesToCome())
           ),
-          tr(unlimited)(
-            a(href := s"${routes.UserAnalysis.parseArg("QN4n1/6r1/3k4/8/b2K4/8/8/8_b_-_-")}#explorer")(
-              trans.features.endgameTablebase()
-            )
-        ),
-          tr(check)(
-            trans.features.downloadOrUploadAnyGameAsPgn()
-          ),
-          tr(unlimited)(
-            trans.features.xThroughLichessBillionGames(
-              a(href := routes.Search.index(1))(trans.search.advancedSearch())
-            )
-          ),
-          tr(unlimited)(
-            a(href := routes.Video.index)(trans.videoLibrary())
-          ),
-          tr(check)(
-            trans.features.tvForumBlogTeamsMessagingFriendsChallenges()
-          ),
-          tr(check)(
-            trans.availableInNbLanguages(a(href := "https://crowdin.com/project/lichess")("140+"))
-          ),
-          tr(check)(
-            trans.features.lightOrDarkThemeCustomBoardsPiecesAndBackground()
-          ),
-          tr(check)(
-            strong(trans.features.allFeaturesToCome())
-          ),
-        header(h1(dataIcon := licon.PhoneMobile)(trans.mobile())),
-        tbody(
+          header(h1(dataIcon := licon.PhoneMobile)(trans.mobile())),
+          tbody(
             tr(check)(
               strong(trans.features.zeroAdsAndNoTracking())
             ),
@@ -136,7 +132,7 @@ object features:
               a(href := routes.Tournament.home)(trans.arena.arenaTournaments())
             ),
             tr(check)(
-              trans.features.boardEditorAndAnalysisBoardWithEngine("Stockfish 14")
+              trans.features.boardEditorAndAnalysisBoardWithEngine("14+")
             ),
             tr(unlimited)(
               a(href := routes.Puzzle.home)(trans.features.tacticalPuzzlesFromUserGames())
@@ -153,19 +149,19 @@ object features:
             tr(check)(
               strong(trans.features.allFeaturesToCome())
             )
-            ),
-        header(h1(trans.supportLichess())),
-        tbody(cls := "support")(
-          st.tr(
-            th(trans.features.contributeToLichessAndGetIcon()),
-            td("-"),
-            td(span(dataIcon := patronIconChar, cls := "is is-green text check")(trans.yes()))
           ),
-          st.tr(cls := "price")(
-            th,
-            td(cls := "green")("$0"),
-            td(a(href := routes.Plan.index, cls := "green button")("$5/month"))
-          )
+          header(h1(trans.supportLichess())),
+          tbody(cls := "support")(
+            st.tr(
+              th(trans.features.contributeToLichessAndGetIcon()),
+              td("-"),
+              td(span(dataIcon := patronIconChar, cls := "is is-green text check")(trans.yes()))
+            ),
+            st.tr(cls := "price")(
+              th,
+              td(cls := "green")("$0"),
+              td(a(href := routes.Plan.index, cls := "green button")("$5/month"))
+            )
         ),
         p(cls := "explanation")(
           strong(trans.features.everybodyGetsAllFeaturesForFree()),
@@ -178,9 +174,8 @@ object features:
           strong(trans.features.allFeaturesAreFreeForEverybody()),
           br,
           trans.features.ifYouLoveLichess(),
-          a(cls := "button", href := routes.Plan.index)(trans.features.supportUsWithAPatronAccount())
+          a(cls := "button", href := routes.Plan.index)(trans.features.supportUsWithAPatronAccount()))
         )
-      )
 
   private def header(name: Frag)(using Lang) =
     thead(
