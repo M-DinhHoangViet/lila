@@ -116,7 +116,8 @@ object features:
             ),
             tr(check)(
               strong(trans.features.allFeaturesToCome())
-            ),
+            )
+          ),
           header(h1(dataIcon := licon.PhoneMobile)(trans.mobile())),
           tbody(
             tr(check)(
