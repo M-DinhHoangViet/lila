@@ -174,7 +174,7 @@ object features:
           strong(trans.features.allFeaturesAreFreeForEverybody()),
           br,
           trans.features.ifYouLoveLichess(),
-          a(cls := "button", href := routes.Plan.index)(trans.features.supportUsWithAPatronAccount())
+          a(cls := "button", href := routes.Plan.index)(trans.features.supportUsWithAPatronAccount()))
         )
 
   def header(name: Frag)(using Lang) =
