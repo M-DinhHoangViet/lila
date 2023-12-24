@@ -12,7 +12,7 @@ object embed:
 
   def lpv(pgn: PgnStr, orientation: Option[Color], getPgn: Boolean)(using EmbedContext) =
     views.html.base.embed(
-      title = "Lichess PGN viewer",
+      title = "Lichess PGN viewers",
       cssModule = "lpv.embed"
     )(
       div(cls := "is2d")(div(pgn)),
