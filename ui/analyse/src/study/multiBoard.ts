@@ -1,7 +1,7 @@
 import debounce from 'common/debounce';
 import * as licon from 'common/licon';
 import { renderClock, fenColor } from 'common/mini-board';
-import { bind, looseH as h, MaybeVNodes, } from 'common/snabbdom';
+import { bind, looseH as h, MaybeVNodes } from 'common/snabbdom';
 import { spinnerVdom as spinner } from 'common/spinner';
 import { VNode } from 'snabbdom';
 import { multiBoard as xhrLoad } from './studyXhr';
