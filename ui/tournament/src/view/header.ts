@@ -35,7 +35,7 @@ function clock(d: TournamentData): VNode | undefined {
         }),
       ]);
     return h('div.clock.clock-created', [
-      h('span.shy', 'Starting in'),
+      h('span.shy', ctrl.trans.noarg('startingIn')),
       h('span.time.text', { hook: startClock(d.secondsToStart) }),
     ]);
   }

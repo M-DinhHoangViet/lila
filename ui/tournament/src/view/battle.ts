@@ -23,7 +23,7 @@ export function joinWithTeamSelector(ctrl: TournamentController) {
     onClose,
     vnodes: [
       h('div.team-picker', [
-        h('h2', 'Pick your team'),
+        h('h2', ctrl.trans.swiss.noarg('pickYourTeam')),
         h('br'),
         ...(tb.joinWith.length
           ? [
