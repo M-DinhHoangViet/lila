@@ -12,7 +12,7 @@ object bits:
 
   import trans.video.*
 
-  private[video] def card(vv: lila.video.VideoView, control: lila.video.UserControl) =
+  private[video] def card(vv: lila.video.VideoView, control: lila.video.UserControl)(using Lang) =
     a(cls := "card paginated", href := s"${routes.Video.show(vv.video.id)}?${control.queryStringUnlessBot}")(
       vv.view option span(cls := "view")(watched()),
       span(cls := "duration")(vv.video.durationString),
