@@ -95,20 +95,22 @@ object BsonHandlers:
         password = r.strO("p"),
         conditions = r.getD[SwissCondition.All]("o"),
         forbiddenPairings = r.getD[String]("fp"),
-        manualPairings = r.getD[String]("mp")
+        manualPairings = r.getD[String]("mp"),
+        minutesBeforeStartToJoin = r.intO("mbs")
       )
     def writes(w: BSON.Writer, s: Swiss.Settings) =
       $doc(
-        "n"  -> s.nbRounds,
-        "r"  -> (!s.rated).option(false),
-        "d"  -> s.description,
-        "f"  -> s.position,
-        "c"  -> (s.chatFor != Swiss.ChatFor.default).option(s.chatFor),
-        "i"  -> s.roundInterval.toSeconds.toInt,
-        "p"  -> s.password,
-        "o"  -> s.conditions,
-        "fp" -> s.forbiddenPairings.some.filter(_.nonEmpty),
-        "mp" -> s.manualPairings.some.filter(_.nonEmpty)
+        "n"   -> s.nbRounds,
+        "r"   -> (!s.rated).option(false),
+        "d"   -> s.description,
+        "f"   -> s.position,
+        "c"   -> (s.chatFor != Swiss.ChatFor.default).option(s.chatFor),
+        "i"   -> s.roundInterval.toSeconds.toInt,
+        "p"   -> s.password,
+        "o"   -> s.conditions,
+        "fp"  -> s.forbiddenPairings.some.filter(_.nonEmpty),
+        "mp"  -> s.manualPairings.some.filter(_.nonEmpty),
+        "mbs" -> s.minutesBeforeStartToJoin
       )
 
   given BSONDocumentHandler[Swiss] = Macros.handler

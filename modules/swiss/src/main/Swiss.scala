@@ -34,7 +34,11 @@ case class Swiss(
   def finishedSinceSeconds = finishedAt.map(nowSeconds - _.toSeconds)
   def isRecentlyFinished   = finishedSinceSeconds.exists(_ < 30 * 60)
   def isEnterable =
-    isNotFinished && round.value <= settings.nbRounds / 2 && nbPlayers < Swiss.maxPlayers
+    isNotFinished && round.value <= settings.nbRounds / 2 && nbPlayers < Swiss.maxPlayers && settings.minutesBeforeStartToJoin
+      .fold(true)(mbs =>
+        DateTime.now
+          .isAfter(startsAt minusMinutes mbs)
+      )
 
   def allRounds: List[SwissRoundNumber] = SwissRoundNumber from (1 to round.value).toList
 
@@ -101,10 +105,16 @@ object Swiss:
       conditions: SwissCondition.All,
       roundInterval: FiniteDuration,
       forbiddenPairings: String,
-      manualPairings: String
+      manualPairings: String,
+      minutesBeforeStartToJoin: Option[Int] = None
   ):
     lazy val intervalSeconds = roundInterval.toSeconds.toInt
-    def manualRounds         = intervalSeconds == Swiss.RoundInterval.manual
+    lazy val timeBeforeStartToJoin: Option[String] = minutesBeforeStartToJoin.map(m =>
+      if m < 60 then s"$m minutes"
+      else if m < 24 * 60 then s"${m / 60} hour${if m == 60 then "" else "s"}"
+      else s"${m / 24 / 60} day${if m == 24 * 60 then "" else "s"}"
+    )
+    def manualRounds  = intervalSeconds == Swiss.RoundInterval.manual
     def dailyInterval = (!manualRounds && intervalSeconds >= 24 * 3600) option intervalSeconds / 3600 / 24
 
   type ChatFor = Int
@@ -118,6 +128,9 @@ object Swiss:
   object RoundInterval:
     val auto   = -1
     val manual = 99999999
+
+  object TimeBeforeStartToJoin:
+    val nolimit = -1
 
   def makeScore(points: SwissPoints, tieBreak: TieBreak, perf: Performance) =
     Score((points.value * 10000000 + tieBreak * 10000 + perf).toInt)

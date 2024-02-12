@@ -20,6 +20,7 @@ export interface SwissData {
   variant: string;
   me?: MyInfo;
   canJoin: boolean;
+  timeBeforeStartToJoin?: string;
   joinTeam?: string;
   round: number;
   nbRounds: number;

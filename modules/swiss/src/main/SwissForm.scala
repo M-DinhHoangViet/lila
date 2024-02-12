@@ -50,7 +50,8 @@ final class SwissForm(using mode: Mode):
               "Invalid pairings, maybe a player is paired twice?",
               SwissManualPairing.validate
             )
-        )
+        ),
+        "minutesBeforeStartToJoin" -> optional(numberIn(timeBeforeStartToJoinIntervals))
       )(SwissData.apply)(unapply)
         .verifying("15s and 0+1 variant games cannot be rated", _.validRatedVariant)
     )
@@ -72,7 +73,8 @@ final class SwissForm(using mode: Mode):
       password = None,
       conditions = SwissCondition.All.empty,
       forbiddenPairings = none,
-      manualPairings = none
+      manualPairings = none,
+      minutesBeforeStartToJoin = none
     )
 
   def edit(user: User, s: Swiss) =
@@ -90,7 +92,8 @@ final class SwissForm(using mode: Mode):
       password = s.settings.password,
       conditions = s.settings.conditions,
       forbiddenPairings = s.settings.forbiddenPairings.some.filter(_.nonEmpty),
-      manualPairings = s.settings.manualPairings.some.filter(_.nonEmpty)
+      manualPairings = s.settings.manualPairings.some.filter(_.nonEmpty),
+      minutesBeforeStartToJoin = s.settings.minutesBeforeStartToJoin
     )
 
   def nextRound =
@@ -149,6 +152,29 @@ object SwissForm:
       else s"${s / 24 / 3600} days(s)"
   )
 
+  val timeBeforeStartToJoinIntervals: Seq[Int] =
+    Seq(
+      Swiss.TimeBeforeStartToJoin.nolimit,
+      15,
+      30,
+      60,
+      2 * 60,
+      6 * 60,
+      12 * 60,
+      24 * 60,
+      2 * 24 * 60,
+      7 * 24 * 60
+    )
+
+  val timeBeforeStartToJoinIntervalChoices = options(
+    timeBeforeStartToJoinIntervals,
+    m =>
+      if m == Swiss.TimeBeforeStartToJoin.nolimit then "No Limit"
+      else if m < 60 then s"$m minutes"
+      else if m < 24 * 60 then s"${m / 60} hour${if m == 60 then "" else "s"}"
+      else s"${m / 24 / 60} day${if m == 24 * 60 then "" else "s"}"
+  )
+
   val chatForChoices = List(
     Swiss.ChatFor.NONE    -> "No chat",
     Swiss.ChatFor.LEADERS -> "Team leaders only",
@@ -170,7 +196,8 @@ object SwissForm:
       password: Option[String],
       conditions: SwissCondition.All,
       forbiddenPairings: Option[String],
-      manualPairings: Option[String]
+      manualPairings: Option[String],
+      minutesBeforeStartToJoin: Option[Int]
   ):
     def realVariant  = Variant.orDefault(variant)
     def realStartsAt = startsAt | nowInstant.plusMinutes(10)
@@ -196,5 +223,10 @@ object SwissForm:
       case Rapid                                     => 60
       case _                                         => 300
   }.seconds
+  def realMinutesBeforeStartToJoin: Option[Int] =
+    minutesBeforeStartToJoin match
+      case Some(Swiss.TimeBeforeStartToJoin.nolimit) => None
+      case Some(mbs)                                 => Some(mbs)
+      case _                                         => None
 
   val joinForm = Form(single("password" -> optional(nonEmptyText)))

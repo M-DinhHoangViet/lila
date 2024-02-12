@@ -77,7 +77,8 @@ final class SwissApi(
         password = data.password,
         conditions = data.conditions,
         forbiddenPairings = ~data.forbiddenPairings,
-        manualPairings = ~data.manualPairings
+        manualPairings = ~data.manualPairings,
+        minutesBeforeStartToJoin = data.realMinutesBeforeStartToJoin
       )
     )
     mongo.swiss.insert.one(addFeaturable(swiss)) andDo
@@ -110,7 +111,8 @@ final class SwissApi(
             password = data.password,
             conditions = data.conditions,
             forbiddenPairings = ~data.forbiddenPairings,
-            manualPairings = ~data.manualPairings
+            manualPairings = ~data.manualPairings,
+            minutesBeforeStartToJoin = data.realMinutesBeforeStartToJoin
           )
         ) pipe { s =>
           if s.isStarted && s.nbOngoing == 0 && (s.nextRoundAt.isEmpty || old.settings.manualRounds) && !s.settings.manualRounds

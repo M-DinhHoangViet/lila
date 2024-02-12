@@ -126,6 +126,18 @@ function joinButton(ctrl: SwissCtrl): VNode | undefined {
       ctrl.trans.noarg('joinTeam'),
     );
 
+  if (!d.canJoin && d.status === 'created' && d.timeBeforeStartToJoin && !d.me)
+    return h(
+      'a.fbt.text',
+      {
+        attrs: {
+          title: `Join ${d.timeBeforeStartToJoin} before start`,
+          'data-icon': 'p',
+        },
+      },
+      'Wait',
+    );
+
   if (d.canJoin)
     return ctrl.joinSpinner
       ? spinner()

@@ -35,6 +35,7 @@ object form:
             form3.split(fields.description, fields.rated),
             fields.clock,
             form3.split(fields.roundInterval, fields.startsAt),
+            fields.minutesBeforeStartToJoin,
             advancedSettings(
               form3.split(fields.variant, fields.position),
               form3.split(fields.chatFor, fields.entryCode),
@@ -67,6 +68,7 @@ object form:
             form3.split(fields.description, fields.rated),
             fields.clock,
             form3.split(fields.roundInterval, swiss.isCreated option fields.startsAt),
+            fields.minutesBeforeStartToJoin,
             advancedSettings(
               form3.split(fields.variant, fields.position),
               form3.split(fields.chatFor, fields.entryCode),
@@ -198,6 +200,10 @@ final private class SwissFields(form: Form[SwissForm.SwissData], swiss: Option[S
       help = trans.inYourLocalTimezone().some,
       half = true
     )(form3.flatpickr(_))
+  def minutesBeforeStartToJoin =
+    form3.group(form("minutesBeforeStartToJoin"), frag("Time before start to join"), half = true)(
+      form3.select(_, SwissForm.timeBeforeStartToJoinIntervalChoices)
+    )
 
   def chatFor =
     form3.group(form("chatFor"), trans.tournChat(), half = true) { f =>

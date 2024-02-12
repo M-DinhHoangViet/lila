@@ -154,16 +154,17 @@ object SwissJson:
   private def swissJsonBase(swiss: Swiss) =
     Json
       .obj(
-        "id"        -> swiss.id,
-        "createdBy" -> swiss.createdBy,
-        "startsAt"  -> isoDateTimeFormatter.print(swiss.startsAt),
-        "name"      -> swiss.name,
-        "clock"     -> swiss.clock,
-        "variant"   -> swiss.variant.key,
-        "round"     -> swiss.round,
-        "nbRounds"  -> swiss.settings.nbRounds,
-        "nbPlayers" -> swiss.nbPlayers,
-        "nbOngoing" -> swiss.nbOngoing,
+        "id"                    -> swiss.id,
+        "createdBy"             -> swiss.createdBy,
+        "startsAt"              -> isoDateTimeFormatter.print(swiss.startsAt),
+        "name"                  -> swiss.name,
+        "clock"                 -> swiss.clock,
+        "variant"               -> swiss.variant.key,
+        "round"                 -> swiss.round,
+        "nbRounds"              -> swiss.settings.nbRounds,
+        "nbPlayers"             -> swiss.nbPlayers,
+        "nbOngoing"             -> swiss.nbOngoing,
+        "timeBeforeStartToJoin" -> swiss.settings.timeBeforeStartToJoin,
         "status" -> {
           if swiss.isStarted then "started"
           else if swiss.isFinished then "finished"
