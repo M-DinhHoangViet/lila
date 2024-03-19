@@ -23,7 +23,7 @@ object feed:
     layout("Updates"):
       div(cls := "daily-feed box box-pad")(
         boxTop(
-          h1("Lichess updates"),
+          h1(trans.updates()),
           div(cls := "box__top__actions")(
             isGranted(_.Feed).option(
               a(
@@ -81,9 +81,10 @@ object feed:
         ),
       div(cls := "daily-feed__update")(
         marker(),
-        div:
+        div(
           a(cls := "daily-feed__update__day", href := "/feed"):
-            "All updates »"
+            trans.allUpdates(), " »"
+        )
       )
     )
 

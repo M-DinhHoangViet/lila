@@ -820,6 +820,8 @@ object I18nKeys:
   val `showMeEverything` = I18nKey("showMeEverything")
   val `lichessPatronInfo` = I18nKey("lichessPatronInfo")
   val `nothingToSeeHere` = I18nKey("nothingToSeeHere")
+  val `updates` = I18nKey("updates")
+  val `allUpdates` = I18nKey("allUpdates")
   val `opponentLeftCounter` = I18nKey("opponentLeftCounter")
   val `mateInXHalfMoves` = I18nKey("mateInXHalfMoves")
   val `nbBlunders` = I18nKey("nbBlunders")
