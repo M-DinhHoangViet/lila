@@ -360,11 +360,11 @@ const makeTabs = (ctrl: AnalyseCtrl) => {
       name,
     );
   return h('nav.relay-tour__tabs', { attrs: { role: 'tablist' } }, [
-    makeTab('overview', 'Overview'),
+    makeTab('overview', ctrl.trans.class.noarg('overview')),
     makeTab('boards', 'Boards'),
     relay.teams && makeTab('teams', 'Teams'),
-    relay.data.tour.leaderboard ? makeTab('leaderboard', 'Leaderboard') : undefined,
-    study.members.myMember() && relay.data.tour.tier ? makeTab('stats', 'Stats') : undefined,
+    relay.data.tour.leaderboard ? makeTab('leaderboard', ctrl.trans.noarg('leaderboard')) : undefined,
+    study.members.myMember() && relay.data.tour.tier ? makeTab('stats', ctrl.trans.arena.noarg('stats') : undefined,
   ]);
 };
 
